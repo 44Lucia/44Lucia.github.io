@@ -1,0 +1,21 @@
+{
+  "orden": 1,
+  "destacado": true,
+  "titulo": "Grimoire of Madness",
+  "descripcion": {
+    "es": "Un frenético juego 2D de tipo Bullet Hell y Arena Shooter. El jugador debe sobrevivir oleadas de enemigos usando hechizos y habilidades especiales en un mundo de fantasía oscura. Jugable directamente en el navegador.",
+    "en": "A frantic 2D Bullet Hell and Arena Shooter game. The player must survive waves of enemies using spells and special abilities in a dark fantasy world. Playable directly in the browser."
+  },
+  "tecnologias": ["Unity", "CSharp"],
+  "media": [
+    "/media/proyectos/grimoire-of-madness/preview.jpg"
+  ],
+  "enlaces": {
+    "codigo": "https://github.com/44Lucia",
+    "demo": "https://kitsunee03.itch.io/grimoireofmadness"
+  },
+  "etiquetas": {
+    "codigo": { "es": "Código", "en": "Code" },
+    "demo": { "es": "Demo", "en": "Demo" }
+  }
+}

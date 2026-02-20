@@ -1,0 +1,21 @@
+{
+  "orden": 6,
+  "destacado": false,
+  "titulo": "Cats vs Zombis",
+  "descripcion": {
+    "es": "Juego de práctica de Álgebra y Geometría desarrollado en Processing. Combina conceptos matemáticos con mecánicas de juego en un enfrentamiento entre gatos y zombis.",
+    "en": "Algebra and Geometry practice game developed in Processing. Combines mathematical concepts with game mechanics in a cats versus zombies showdown."
+  },
+  "tecnologias": ["Processing", "JavaScript"],
+  "media": [
+    "/media/proyectos/cats-vs-zombis/preview.jpg"
+  ],
+  "enlaces": {
+    "codigo": "https://github.com/44Lucia/Cats_vs_Zombis",
+    "demo": ""
+  },
+  "etiquetas": {
+    "codigo": { "es": "Repositorio", "en": "Repository" },
+    "demo": { "es": "Commits", "en": "Commits" }
+  }
+}

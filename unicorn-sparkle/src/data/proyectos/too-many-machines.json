@@ -1,0 +1,21 @@
+{
+  "orden": 3,
+  "destacado": true,
+  "titulo": "Too Many Machines",
+  "descripcion": {
+    "es": "Un juego de plataformas donde el jugador navega a través de niveles llenos de máquinas y obstáculos mecánicos. Jugable directamente en el navegador con controles intuitivos y niveles desafiantes.",
+    "en": "A platformer game where the player navigates through levels full of machines and mechanical obstacles. Playable directly in the browser with intuitive controls and challenging levels."
+  },
+  "tecnologias": ["Unity", "CSharp"],
+  "media": [
+    "/media/proyectos/too-many-machines/preview.jpg"
+  ],
+  "enlaces": {
+    "codigo": "https://github.com/44Lucia",
+    "demo": "https://44lucia.itch.io/too-many-machines"
+  },
+  "etiquetas": {
+    "codigo": { "es": "Código", "en": "Code" },
+    "demo": { "es": "Demo", "en": "Demo" }
+  }
+}

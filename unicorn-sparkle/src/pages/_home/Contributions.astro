@@ -1,10 +1,11 @@
 ---
 import { t } from 'i18n:astro'
 import CardContributions from '@components/CardContributions.astro'
+import { otrosProyectos } from '@data/cargar-proyectos'
 
-const { title, contributions } = t('contributions', {
-  returnObjects: true
-})
+const lang = Astro.url.pathname.includes('/en') ? 'en' : 'es'
+const { title } = t('contributions', { returnObjects: true })
+const proyectos = otrosProyectos()
 ---
 
 <section class="contributions">
@@ -13,29 +14,18 @@ const { title, contributions } = t('contributions', {
   </h2>
   <div class="card-contributions">
     {
-      contributions.map(
-        ({
-          src,
-          alt,
-          title,
-          description,
-          techs,
-          repo,
-          repo_label: repoLabel,
-          commits
-        }) => (
-          <CardContributions
-            src={src}
-            alt={alt}
-            title={title}
-            description={description}
-            techs={techs}
-            repo={repo}
-            repoLabel={repoLabel}
-            commits={commits}
-          />
-        )
-      )
+      proyectos.map((p) => (
+        <CardContributions
+          media={p.media}
+          alt={p.titulo}
+          title={p.titulo}
+          description={p.descripcion[lang]}
+          techs={p.tecnologias}
+          repo={p.enlaces.codigo}
+          repoLabel={p.etiquetas.codigo[lang]}
+          commits={p.enlaces.demo || `${p.enlaces.codigo}/commits`}
+        />
+      ))
     }
   </div>
 </section>

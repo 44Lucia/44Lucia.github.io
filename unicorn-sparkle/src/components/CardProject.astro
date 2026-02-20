@@ -1,53 +1,46 @@
 ---
-import type { ImageMetadata } from 'astro'
 import { Icon } from 'astro-icon/components'
-import { Picture } from 'astro:assets'
+import Carousel from '@components/Carousel.astro'
 import '@styles/tech-colors.css'
 
 interface Props {
-  src: string
-  alt: string
   title: string
   description: string
   techs: string[]
-  code: string
-  preview: string
+  media: string[]
+  codeLabel: string
+  previewLabel: string
+  codeUrl: string
+  previewUrl: string
 }
 
-const { src, alt, title, description, techs, code, preview } = Astro.props
+const { title, description, techs, media, codeLabel, previewLabel, codeUrl, previewUrl } = Astro.props
 
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/images/projects/*.{jpeg,jpg,png}'
-)
-if (!images[src])
-  throw new Error(
-    `"${src}" no existe en: "/src/images/projects/*.{jpeg,jpg,png}"`
-  )
+/** Convierte el nombre visible de la tech a un slug válido para iconos y CSS */
+const techSlugMap: Record<string, string> = {
+  'c++': 'cpp',
+  'c#': 'csharp',
+}
+function techSlug(tech: string): string {
+  const lower = tech.toLowerCase().replaceAll(' ', '-')
+  return techSlugMap[lower] ?? lower
+}
 ---
 
 <section class="card-project">
   <div>
-    <a href="#">
-      <Picture
-        src={images[src]()}
-        alt={alt}
-        width={434}
-        height={288}
-        formats={['avif', 'webp']}
-        fallbackFormat="webp"
-      />
-    </a>
+    <Carousel media={media} alt={title} autoplayMs={5000} />
   </div>
   <div class="description">
-    <h3><a href="#">{title}</a></h3>
+    <h3><a href={previewUrl || '#'}>{title}</a></h3>
     <div class="badges">
       {
         techs.map((tech) => {
-          const techLower = tech.toLowerCase().replaceAll(' ', '-')
+          const slug = techSlug(tech)
 
           return (
-            <span class={`badge-tech ${techLower}`}>
-              <Icon name={`techs/${techLower}`} size={24} />
+            <span class={`badge-tech ${slug}`}>
+              <Icon name={`techs/${slug}`} size={24} />
               <span>{tech}</span>
             </span>
           )
@@ -56,14 +49,18 @@ if (!images[src])
     </div>
     <p>{description}</p>
     <div class="links">
-      <a href="#">
-        <Icon name="github" size={24} />
-        {code}
-      </a>
-      <a href="#">
-        <Icon name="link" size={24} />
-        {preview}
-      </a>
+      {codeUrl && (
+        <a href={codeUrl} target="_blank" rel="noopener noreferrer">
+          <Icon name="github" size={24} />
+          {codeLabel}
+        </a>
+      )}
+      {previewUrl && (
+        <a href={previewUrl} target="_blank" rel="noopener noreferrer">
+          <Icon name="link" size={24} />
+          {previewLabel}
+        </a>
+      )}
     </div>
   </div>
 </section>

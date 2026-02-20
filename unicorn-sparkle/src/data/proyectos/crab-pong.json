@@ -1,0 +1,21 @@
+{
+  "orden": 4,
+  "destacado": false,
+  "titulo": "Crab Pong",
+  "descripcion": {
+    "es": "Un juego de pong creado con la premisa de una Game Jam de 24h.",
+    "en": "A pong game created with the premise of a 24-hour game jam."
+  },
+  "tecnologias": ["Unity", "CSharp"],
+  "media": [
+    "/media/proyectos/crab-pong/preview.jpg"
+  ],
+  "enlaces": {
+    "codigo": "https://github.com/44Lucia/AA3_CrabPong",
+    "demo": "https://44lucia.itch.io/crab-pong"
+  },
+  "etiquetas": {
+    "codigo": { "es": "Repositorio", "en": "Repository" },
+    "demo": { "es": "Demo", "en": "Demo" }
+  }
+}

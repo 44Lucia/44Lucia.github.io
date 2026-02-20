@@ -1,0 +1,21 @@
+{
+  "orden": 5,
+  "destacado": false,
+  "titulo": "Harvest Night",
+  "descripcion": {
+    "es": "Pilla a Pilla fruto de una Game Jam, con una temática de juegos de patio, en tan solo dos días.",
+    "en": "A game created in a 24-hour game jam with a patio games theme."
+  },
+  "tecnologias": ["Unity", "CSharp"],
+  "media": [
+    "/media/proyectos/harvest-night/preview.jpg"
+  ],
+  "enlaces": {
+    "codigo": "https://github.com/44Lucia/AA1_HarvestNight",
+    "demo": "https://44lucia.itch.io/harvest-night"
+  },
+  "etiquetas": {
+    "codigo": { "es": "Repositorio", "en": "Repository" },
+    "demo": { "es": "Demo", "en": "Demo" }
+  }
+}

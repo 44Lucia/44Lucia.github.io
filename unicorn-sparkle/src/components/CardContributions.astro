@@ -1,11 +1,9 @@
 ---
-import type { ImageMetadata } from 'astro'
 import { Icon } from 'astro-icon/components'
-import { Picture } from 'astro:assets'
 import '@styles/tech-colors.css'
 
 interface Props {
-  src: string
+  media: string[]
   alt: string
   title: string
   description: string
@@ -15,28 +13,31 @@ interface Props {
   commits: string
 }
 
-const { src, alt, title, description, techs, repo, repoLabel, commits } =
+const { media, alt, title, description, techs, repo, repoLabel, commits } =
   Astro.props
 
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/images/contributions/*.{jpeg,jpg,png}'
-)
-if (!images[src])
-  throw new Error(
-    `"${src}" no existe en: "/src/images/contributions/*.{jpeg,jpg,png}"`
-  )
+const previewSrc = media[0] || ''
+
+/** Convierte el nombre visible de la tech a un slug válido para iconos y CSS */
+const techSlugMap: Record<string, string> = {
+  'c++': 'cpp',
+  'c#': 'csharp',
+}
+function techSlug(tech: string): string {
+  const lower = tech.toLowerCase().replaceAll(' ', '-')
+  return techSlugMap[lower] ?? lower
+}
 ---
 
 <section class="card-contributions">
   <div>
-    <a href={repo}>
-      <Picture
-        src={images[src]()}
+    <a href={repo} target="_blank" rel="noopener noreferrer">
+      <img
+        src={previewSrc}
         alt={alt}
         width={293}
         height={168}
-        formats={['avif', 'webp']}
-        fallbackFormat="webp"
+        loading="lazy"
       />
     </a>
   </div>
@@ -47,11 +48,11 @@ if (!images[src])
   <div class="badges">
     {
       techs.map((tech) => {
-        const techLower = tech.toLowerCase().replaceAll(' ', '-')
+        const slug = techSlug(tech)
 
         return (
-          <span class={`badge-tech ${techLower}`}>
-            <Icon name={`techs/${techLower}`} size={16} />
+          <span class={`badge-tech ${slug}`}>
+            <Icon name={`techs/${slug}`} size={16} />
             <span>{tech}</span>
           </span>
         )

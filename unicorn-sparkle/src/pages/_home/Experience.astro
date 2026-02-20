@@ -1,11 +1,17 @@
 ---
 import { t } from 'i18n:astro'
+import { experiencia } from '@data/experiencia'
 
-const { title, jobs } = t('experience', {
-  returnObjects: true
-})
+const lang = Astro.url.pathname.includes('/en') ? 'en' : 'es'
+const { title } = t('experience', { returnObjects: true })
 
-const { jobs_title: jobsTitle, jobs_description: jobsDescription } = jobs
+const jobsTitle = experiencia.map(j => j.empresa[lang])
+const jobsDescription = experiencia.map(j => ({
+  title: j.puesto[lang],
+  time: j.fechaFin ? [j.fechaInicio, j.fechaFin] : [j.fechaInicio],
+  description: j.descripcion[lang],
+  list: j.tareas[lang],
+}))
 
 const normalizeTitle = title
   .toLowerCase()

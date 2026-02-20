@@ -1,0 +1,30 @@
+{
+  "_comentario": "📋 PLANTILLA — Copia este fichero, renómbralo y rellena tus datos",
+  "_instrucciones": [
+    "1. Copia este fichero en esta misma carpeta",
+    "2. Renómbralo (ej: mi-nuevo-juego.json)",
+    "3. Rellena todos los campos",
+    "4. Pon tus imágenes/gifs en: public/media/proyectos/mi-nuevo-juego/",
+    "5. ¡Listo! El proyecto aparecerá automáticamente en la web"
+  ],
+  "orden": 1,
+  "destacado": true,
+  "titulo": "Nombre del Proyecto",
+  "descripcion": {
+    "es": "Descripción en español del proyecto...",
+    "en": "English description of the project..."
+  },
+  "tecnologias": ["Unity", "CSharp"],
+  "media": [
+    "/media/proyectos/nombre-proyecto/preview.jpg",
+    "/media/proyectos/nombre-proyecto/gameplay.gif"
+  ],
+  "enlaces": {
+    "codigo": "https://github.com/tu-usuario/tu-repo",
+    "demo": "https://tu-demo.com"
+  },
+  "etiquetas": {
+    "codigo": { "es": "Código", "en": "Code" },
+    "demo": { "es": "Vista previa", "en": "Preview" }
+  }
+}

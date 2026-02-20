@@ -1,2 +1,1 @@
-¡Hola! Soy **Facundo D'Andrea**, desarrollador front-end, graduado como técnico superior en progrmación. Me encanta la tecnología y colaborar en proyectos de código abierto. ¡Siempre listo para aprender y asumir nuevos retos!
-
+¡Hola! Soy **Lucia Fornos Balaguer**, programadora de videojuegos y estudiante de Barcelona, España. Me apasiona crear experiencias interactivas únicas, desde juegos indie hasta simulaciones físicas. ¡Siempre lista para aprender y asumir nuevos retos!

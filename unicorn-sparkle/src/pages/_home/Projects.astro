@@ -1,10 +1,16 @@
 ---
 import { t } from 'i18n:astro'
 import CardProject from '@components/CardProject.astro'
+import { proyectosDestacados } from '@data/cargar-proyectos'
 
-const { title, projects } = t('projects', {
-  returnObjects: true
-})
+// Detectar idioma actual
+const lang = Astro.url.pathname.includes('/en') ? 'en' : 'es'
+
+// Título de sección desde i18n
+const { title } = t('projects', { returnObjects: true })
+
+// Proyectos leídos automáticamente de src/data/proyectos/*.json
+const proyectos = proyectosDestacados()
 ---
 
 <section id={title.toLowerCase()} class="projects">
@@ -12,15 +18,16 @@ const { title, projects } = t('projects', {
     <span>{title}</span>
   </h2>
   {
-    projects.map(({ title, description, image, techs, code, preview }) => (
+    proyectos.map((p) => (
       <CardProject
-        src={image}
-        alt={title}
-        title={title}
-        description={description}
-        techs={techs}
-        code={code}
-        preview={preview}
+        title={p.titulo}
+        description={p.descripcion[lang]}
+        techs={p.tecnologias}
+        media={p.media}
+        codeLabel={p.etiquetas.codigo[lang]}
+        previewLabel={p.etiquetas.demo[lang]}
+        codeUrl={p.enlaces.codigo}
+        previewUrl={p.enlaces.demo}
       />
     ))
   }

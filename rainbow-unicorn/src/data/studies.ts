@@ -1,7 +1,7 @@
 export const studies = [
   {
-    title: 'Técnico Superior en Programación',
-    org: 'Universidad Tecnológica Nacional - FRT',
-    year: '2024',
+    title: 'Diseño y Desarrollo de Videojuegos y Aplicaciones',
+    org: 'Centro Universitario de Barcelona',
+    year: '2026',
   },
 ]

@@ -1,11 +1,13 @@
 ---
-import felixicaza from '@images/felixicaza.jpg'
+import luciaPhoto from '@images/lucia-fornos.jpg'
 import { Picture } from 'astro:assets'
 import { t } from 'i18n:astro'
+import { miInfo } from '@data/mi-info'
 
-const { title, subtitle, description } = t('about', {
-  returnObjects: true
-})
+const lang = Astro.url.pathname.includes('/en') ? 'en' : 'es'
+const { title } = t('about', { returnObjects: true })
+const subtitle = miInfo.sobreMi.subtitulo[lang]
+const description = miInfo.sobreMi.descripcion[lang]
 
 const normalizeTitle = title
   .toLowerCase()
@@ -19,8 +21,8 @@ const normalizeTitle = title
   <section class="info">
     <div class="picture">
       <Picture
-        src={felixicaza}
-        alt="Felix Icaza"
+        src={luciaPhoto}
+        alt="Lucia Fornos Balaguer"
         width={366}
         height={361}
         formats={['avif', 'webp']}

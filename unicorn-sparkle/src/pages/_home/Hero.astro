@@ -2,16 +2,17 @@
 import { Icon } from 'astro-icon/components'
 import { t } from 'i18n:astro'
 import Button from '@components/Button.astro'
+import { miInfo } from '@data/mi-info'
 
-const {
-  job_availability: jobAvailability,
-  title,
-  job_title: jobTitle,
-  description,
-  cta
-} = t('hero', {
-  returnObjects: true
-})
+const lang = Astro.url.pathname.includes('/en') ? 'en' : 'es'
+
+const jobAvailability = lang === 'es' ? '¡Disponible para trabajar!' : 'Available for work!'
+const cta = lang === 'es' ? 'Contactame' : 'Contact me'
+const heroTitle = lang === 'es'
+  ? `¡Hola soy ${miInfo.nombre}!`
+  : `Hello I'm ${miInfo.nombre}!`
+const jobTitle = `<strong>${miInfo.titulo[lang]}</strong> ${lang === 'es' ? 'de' : 'from'} ${miInfo.ubicacion[lang]}.`
+const description = miInfo.descripcionCorta[lang]
 ---
 
 <section class="hero">
@@ -20,14 +21,14 @@ const {
       <span class="dot"></span>
       <span>{jobAvailability}</span>
     </div>
-    <h1>{title}</h1>
+    <h1>{heroTitle}</h1>
     <section>
       <p set:html={jobTitle} />
       <p>{description}</p>
     </section>
     <section class="button-container">
-      <Button class="filled" href="#">{cta}</Button>
-      <Button href="#">
+      <Button class="filled" href={`mailto:${miInfo.links.email}`}>{cta}</Button>
+      <Button href={miInfo.links.linkedin} target="_blank">
         <Icon name="linkedin" size={24} />
         <span>LinkedIn</span>
       </Button>

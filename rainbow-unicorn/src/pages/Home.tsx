@@ -104,25 +104,25 @@ const Home = () => {
           /assets/imgs/face.avif'
           >
             <Button
-              link='mailto:facundodandrea01@gmail.com?subject=Consulta&body=Hola Facundo queremos hablar contigo'
+              link='mailto:lucia.fornos@email.com?subject=Consulta&body=Hola Lucia quiero hablar contigo'
               icon={<EmailIcon />}
               variant='icon'
               external={true}
             />
             <Button
-              link='https://www.linkedin.com/in/facundo-d-andrea/'
+              link='https://www.linkedin.com/in/lucia-fornos-99633823b/'
               icon={<LinkedinIcon />}
               variant='icon'
               external={true}
             />
             <Button
-              link='https://github.com/Facundodandrea'
+              link='https://github.com/44Lucia'
               icon={<GithubIcon />}
               variant='icon'
               external={true}
             />
             <Button
-              link='https://www.instagram.com/facudandrea1/'
+              link='https://44lucia.itch.io/'
               icon={<InstagramIcon />}
               variant='icon'
               external={true}
@@ -131,15 +131,15 @@ const Home = () => {
         </div>
         <div key='2' className='grid-item' onClick={e => e.stopPropagation()}>
           <AboutCard markdownPath='/data/about-me.md'>
-            <Tags technology='HTML' />
-            <Tags technology='CSS' />
+            <Tags technology='C#' />
+            <Tags technology='Unity' />
+            <Tags technology='Unreal Engine' />
+            <Tags technology='C++' />
+            <Tags technology='ShaderLab' />
             <Tags technology='JavaScript' />
             <Tags technology='TypeScript' />
-            <Tags technology='Sass' />
-            <Tags technology='React' />
-            <Tags technology='Astro' />
-            <Tags technology='MySQL' />
-            <Tags technology='Node' />
+            <Tags technology='Kotlin' />
+            <Tags technology='HTML' />
           </AboutCard>
         </div>
         <div key='3' className='grid-item' onClick={e => e.stopPropagation()}>
@@ -150,30 +150,30 @@ const Home = () => {
         </div>
         <div key='5' className='grid-item' onClick={e => e.stopPropagation()}>
           <WorkCard
-            companyName='UxCorp Rangel'
-            link='/projects/portfolio-ana-rangel'
-            projectName='Portfolio Ana Rangel '
+            companyName='Indie Game'
+            link='/projects/grimoire-of-madness'
+            projectName='Grimoire of Madness'
           />
         </div>
         <div key='6' className='grid-item' onClick={e => e.stopPropagation()}>
           <WorkCard
-            companyName='Comunidad Javascript'
-            link='/projects/jsconf-chile-2024'
-            projectName='JSConf Chile 2024'
+            companyName='Indie Game'
+            link='/projects/save-me-eddie'
+            projectName='Save me Eddie'
           />
         </div>
         <div key='7' className='grid-item' onClick={e => e.stopPropagation()}>
           <WorkCard
-            companyName='UxCorp Rangel'
-            link='/projects/ux-corp-page'
-            projectName='UX Corp Rangel - Página oficial'
+            companyName='Indie Game'
+            link='/projects/too-many-machines'
+            projectName='Too Many Machines'
           />
         </div>
         <div key='8' className='grid-item' onClick={e => e.stopPropagation()}>
           <WorkCard
-            companyName='UxCorp Rangel'
-            link='/projects/portfolio-junior-unicorn'
-            projectName='Portfololio Junior Unicorn'
+            companyName='Proyecto Académico'
+            link='/projects/waves-simulation'
+            projectName='Simulación de Ondas'
           />
         </div>
         <div key='9' className='grid-item' onClick={e => e.stopPropagation()}>

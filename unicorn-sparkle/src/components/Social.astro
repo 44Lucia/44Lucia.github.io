@@ -1,16 +1,17 @@
 ---
 import { Icon } from 'astro-icon/components'
+import { miInfo } from '@data/mi-info'
 ---
 
 <aside class="socials">
   <nav>
-    <a href="#" aria-label="GitHub">
+    <a href={miInfo.links.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
       <Icon name="github" size={28} />
     </a>
-    <a href="#" aria-label="LinkedIn">
+    <a href={miInfo.links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
       <Icon name="linkedin" size={28} />
     </a>
-    <a href="#" aria-label="Mail">
+    <a href={`mailto:${miInfo.links.email}`} aria-label="Mail">
       <Icon name="mail" size={28} />
     </a>
   </nav>

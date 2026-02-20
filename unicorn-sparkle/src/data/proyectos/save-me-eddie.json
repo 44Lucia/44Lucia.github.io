@@ -1,0 +1,21 @@
+{
+  "orden": 2,
+  "destacado": true,
+  "titulo": "Save me Eddie",
+  "descripcion": {
+    "es": "Un juego de puzzles donde el jugador debe resolver desafíos ingeniosos para salvar al protagonista. Combina mecánicas de lógica con una narrativa envolvente y un estilo visual único.",
+    "en": "A puzzle game where the player must solve ingenious challenges to save the protagonist. Combines logic mechanics with an engaging narrative and a unique visual style."
+  },
+  "tecnologias": ["UnrealEngine", "C++"],
+  "media": [
+    "/media/proyectos/save-me-eddie/preview.jpg"
+  ],
+  "enlaces": {
+    "codigo": "https://github.com/44Lucia",
+    "demo": "https://44lucia.itch.io/save-me-eddie"
+  },
+  "etiquetas": {
+    "codigo": { "es": "Código", "en": "Code" },
+    "demo": { "es": "Demo", "en": "Demo" }
+  }
+}

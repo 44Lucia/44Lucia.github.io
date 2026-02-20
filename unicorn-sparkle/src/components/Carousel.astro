@@ -1,0 +1,194 @@
+---
+/**
+ * Carrusel de imágenes/gifs para proyectos.
+ * - Scroll lateral automático cada X segundos
+ * - Flechas para pasar manualmente
+ * - Indicadores de posición (dots)
+ */
+
+interface Props {
+  media: string[]
+  alt: string
+  autoplayMs?: number // milisegundos entre slides (default 5000)
+}
+
+const { media, alt, autoplayMs = 5000 } = Astro.props
+const hasMultiple = media.length > 1
+---
+
+<div class="carousel" data-autoplay={autoplayMs}>
+  <div class="carousel-track">
+    {media.map((src, i) => (
+      <div class:list={['carousel-slide', { active: i === 0 }]} data-index={i}>
+        <img src={src} alt={`${alt} - ${i + 1}`} loading="lazy" />
+      </div>
+    ))}
+  </div>
+
+  {hasMultiple && (
+    <button class="carousel-arrow carousel-prev" aria-label="Anterior">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </button>
+    <button class="carousel-arrow carousel-next" aria-label="Siguiente">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18l6-6-6-6" />
+      </svg>
+    </button>
+    <div class="carousel-dots">
+      {media.map((_, i) => (
+        <button
+          class:list={['carousel-dot', { active: i === 0 }]}
+          data-index={i}
+          aria-label={`Ir a imagen ${i + 1}`}
+        />
+      ))}
+    </div>
+  )}
+</div>
+
+<style>
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 434px;
+    aspect-ratio: 434 / 288;
+    background-color: var(--bg-card-contributions, #1a1a1a);
+  }
+
+  .carousel-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.75);
+    }
+  }
+
+  .carousel:hover .carousel-arrow {
+    opacity: 1;
+  }
+
+  .carousel-prev {
+    left: 8px;
+  }
+
+  .carousel-next {
+    right: 8px;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease;
+
+    &.active {
+      background: white;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll<HTMLDivElement>('.carousel').forEach((carousel) => {
+      const track = carousel.querySelector<HTMLDivElement>('.carousel-track')
+      const slides = carousel.querySelectorAll<HTMLDivElement>('.carousel-slide')
+      const dots = carousel.querySelectorAll<HTMLButtonElement>('.carousel-dot')
+      const prevBtn = carousel.querySelector<HTMLButtonElement>('.carousel-prev')
+      const nextBtn = carousel.querySelector<HTMLButtonElement>('.carousel-next')
+
+      if (!track || slides.length <= 1) return
+
+      let current = 0
+      const total = slides.length
+      const autoplayMs = parseInt(carousel.dataset.autoplay || '5000')
+
+      function goTo(index: number) {
+        current = ((index % total) + total) % total
+        track!.style.transform = `translateX(-${current * 100}%)`
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === current))
+      }
+
+      // Flechas
+      prevBtn?.addEventListener('click', () => { goTo(current - 1); resetAutoplay() })
+      nextBtn?.addEventListener('click', () => { goTo(current + 1); resetAutoplay() })
+
+      // Dots
+      dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          goTo(parseInt(dot.dataset.index || '0'))
+          resetAutoplay()
+        })
+      })
+
+      // Autoplay
+      let interval = setInterval(() => goTo(current + 1), autoplayMs)
+      function resetAutoplay() {
+        clearInterval(interval)
+        interval = setInterval(() => goTo(current + 1), autoplayMs)
+      }
+
+      // Pausar al hover
+      carousel.addEventListener('mouseenter', () => clearInterval(interval))
+      carousel.addEventListener('mouseleave', () => {
+        interval = setInterval(() => goTo(current + 1), autoplayMs)
+      })
+    })
+  })
+</script>

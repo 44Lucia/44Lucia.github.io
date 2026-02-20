@@ -7,6 +7,7 @@ import Favicons from '@components/Favicons.astro'
 import Footer from '@components/Footer.astro'
 import Navbar from '@components/Navbar.astro'
 import Social from '@components/Social.astro'
+import { miInfo } from '@data/mi-info'
 import 'sanitize.css'
 import 'sanitize.css/assets.css'
 import 'sanitize.css/typography.css'
@@ -130,7 +131,7 @@ const { title, description, metaRobots } = options
     {description && <meta name="description" content={description} />}
     {description && <link href={Astro.url.href} rel="canonical" />}
     <I18NHead />
-    <meta name="author" content="Felix Icaza - https://felixicaza.com" />
+    <meta name="author" content={`${miInfo.nombreCompleto} - ${miInfo.links.web}`} />
     <meta name="generator" content={Astro.generator} />
 
     {
@@ -139,16 +140,14 @@ const { title, description, metaRobots } = options
           item={{
             '@context': 'https://schema.org',
             '@type': 'Person',
-            name: 'Felix Icaza',
-            url: 'https://felixicaza.com',
-            image: 'https://felixicaza.com/img/felixicaza.jpg',
+            name: miInfo.nombreCompleto,
+            url: miInfo.links.web,
             sameAs: [
-              'https://felixicaza.com',
-              'https://www.upwork.com/freelancers/felixicaza',
-              'https://www.linkedin.com/in/felixicaza',
-              'https://github.com/felixicaza'
+              miInfo.links.github,
+              miInfo.links.linkedin,
+              miInfo.links.itchio
             ],
-            jobTitle: 'Desarrollador Web Frontend'
+            jobTitle: miInfo.titulo.en
           }}
         />
       )

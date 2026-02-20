@@ -1,3 +1,3 @@
-# Sobre mi
+# Sobre mí
 
-Persona de baja estatura que programa, es conocido como tu amigo el apoya brazo. Es el terror de las bases de datos, **capaz de centrar un <div> sin morir en el intento**. Egresado como técnico superior en programación. Solo sabe hablar con referencias a memes. Aprendiz de Figma que ya no explota el efecto "mirror" en tarjetas.
+Programadora de videojuegos de Barcelona con pasión por crear mundos interactivos. Especializada en **Unity y Unreal Engine**, capaz de implementar desde mecánicas de gameplay hasta shaders personalizados. Participante activa en Game Jams con varios juegos publicados en itch.io. Combina conocimientos de matemáticas aplicadas, física de simulaciones e inteligencia artificial para dar vida a experiencias únicas.
