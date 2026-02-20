@@ -8,7 +8,8 @@
   },
   "tecnologias": ["UnrealEngine", "C++"],
   "media": [
-    "/media/proyectos/save-me-eddie/preview.jpg"
+    "/media/proyectos/save-me-eddie/preview.jpg",
+    "/media/proyectos/save-me-eddie/preview-2.jpg"
   ],
   "enlaces": {
     "codigo": "https://github.com/44Lucia",

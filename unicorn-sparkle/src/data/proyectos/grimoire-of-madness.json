@@ -8,7 +8,8 @@
   },
   "tecnologias": ["Unity", "CSharp"],
   "media": [
-    "/media/proyectos/grimoire-of-madness/preview.jpg"
+    "/media/proyectos/grimoire-of-madness/preview.jpg",
+    "/media/proyectos/grimoire-of-madness/preview-2.jpg"
   ],
   "enlaces": {
     "codigo": "https://github.com/44Lucia",

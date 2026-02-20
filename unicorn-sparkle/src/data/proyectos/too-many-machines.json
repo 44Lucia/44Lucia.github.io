@@ -8,7 +8,8 @@
   },
   "tecnologias": ["Unity", "CSharp"],
   "media": [
-    "/media/proyectos/too-many-machines/preview.jpg"
+    "/media/proyectos/too-many-machines/preview.jpg",
+    "/media/proyectos/too-many-machines/preview-2.jpg"
   ],
   "enlaces": {
     "codigo": "https://github.com/44Lucia",
