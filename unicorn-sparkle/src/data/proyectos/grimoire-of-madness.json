@@ -3,14 +3,13 @@
   "destacado": true,
   "titulo": "Grimoire of Madness",
   "descripcion": {
-    "es": "Un frenético juego 2D de tipo Bullet Hell y Arena Shooter. El jugador debe sobrevivir oleadas de enemigos usando hechizos y habilidades especiales en un mundo de fantasía oscura. Jugable directamente en el navegador.",
-    "en": "A frantic 2D Bullet Hell and Arena Shooter game. The player must survive waves of enemies using spells and special abilities in a dark fantasy world. Playable directly in the browser."
+    "es": "Grimoire of Madness es un juego de disparos en 2D de ritmo frenético con cámara cenital, donde debes sobrevivir a oleadas implacables de enemigos usando armas mágicas y reflejos rápidos.",
+    "en": "Grimoire of Madness is a fast-paced 2D Bullet Hell game with a top-down camera, where you must survive relentless waves of enemies using magical weapons and quick reflexes."
   },
   "tecnologias": ["Unity", "CSharp"],
   "media": [
     "/media/proyectos/grimoire-of-madness/FLYER_GRIMOIRE.jpg",
     "/media/proyectos/grimoire-of-madness/grimoire_gameplay.png",
-    "/media/proyectos/grimoire-of-madness/grimoire_gameplay1.png",
     "/media/proyectos/grimoire-of-madness/grimoire_gameplay2.png",
     "/media/proyectos/grimoire-of-madness/grimoire_gameplay3.png",
     "/media/proyectos/grimoire-of-madness/grimoire_gameplay4.png"

@@ -3,13 +3,16 @@
   "destacado": true,
   "titulo": "Save me Eddie",
   "descripcion": {
-    "es": "Un juego de puzzles donde el jugador debe resolver desafíos ingeniosos para salvar al protagonista. Combina mecánicas de lógica con una narrativa envolvente y un estilo visual único.",
-    "en": "A puzzle game where the player must solve ingenious challenges to save the protagonist. Combines logic mechanics with an engaging narrative and a unique visual style."
+    "es": "Save Me Eddie es una aventura gráfica en primera persona que narra la historia de Eddie, un paciente en un programa de investigación para personas con personalidades múltiples. El jugador explora la habitación de Eddie y resuelve acertijos para acceder a sus recuerdos, que están relacionados con su condición. Tomar una sustancia psicotrópica lleva al jugador a diferentes niveles atmosféricos que representan los recuerdos de Eddie.",
+    "en": "Save Me Eddie is a first-person graphic adventure that follows the story of Eddie, a patient in a research program for people with multiple personalities. The player explores Eddie's room and solves puzzles to access his memories, which are related to his condition. Taking a psychotropic substance leads the player to different atmospheric levels that represent Eddie's memories."
   },
   "tecnologias": ["UnrealEngine", "C++"],
   "media": [
-    "/media/proyectos/save-me-eddie/preview.jpg",
-    "/media/proyectos/save-me-eddie/preview-2.jpg"
+    "/media/proyectos/save-me-eddie/savemeeddie.png",
+    "/media/proyectos/save-me-eddie/savemeeddie_gameplay.png",
+    "/media/proyectos/save-me-eddie/savemeeddie_gameplay2.png",
+    "/media/proyectos/save-me-eddie/savemeeddie_gameplay3.png",
+    "/media/proyectos/save-me-eddie/savemeeddie_gameplay4.png"
   ],
   "enlaces": {
     "codigo": "https://github.com/44Lucia",

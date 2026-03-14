@@ -9,10 +9,10 @@
 interface Props {
   media: string[]
   alt: string
-  autoplayMs?: number // milisegundos entre slides (default 5000)
+  autoplayMs?: number // milisegundos entre slides (default 3000)
 }
 
-const { media, alt, autoplayMs = 5000 } = Astro.props
+const { media, alt, autoplayMs = 3000 } = Astro.props
 const hasMultiple = media.length > 1
 ---
 
@@ -55,7 +55,7 @@ const hasMultiple = media.length > 1
     border-radius: 4px;
     width: 100%;
     max-width: 434px;
-    aspect-ratio: 434 / 288;
+    aspect-ratio: 1920 / 1080;
     background-color: var(--bg-card-contributions, #1a1a1a);
   }
 
@@ -67,14 +67,20 @@ const hasMultiple = media.length > 1
   }
 
   .carousel-slide {
-    min-width: 100%;
+    flex: 0 0 100%;
+    width: 100%;
     height: 100%;
-    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     & img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
       display: block;
     }
   }
@@ -145,8 +151,11 @@ const hasMultiple = media.length > 1
 </style>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    document.querySelectorAll<HTMLDivElement>('.carousel').forEach((carousel) => {
+  function initCarousels() {
+    document.querySelectorAll<HTMLElement>('.carousel').forEach((carousel) => {
+      if (carousel.dataset.initialized === 'true') return
+      carousel.dataset.initialized = 'true'
+
       const track = carousel.querySelector<HTMLDivElement>('.carousel-track')
       const slides = carousel.querySelectorAll<HTMLDivElement>('.carousel-slide')
       const dots = carousel.querySelectorAll<HTMLButtonElement>('.carousel-dot')
@@ -154,41 +163,54 @@ const hasMultiple = media.length > 1
       const nextBtn = carousel.querySelector<HTMLButtonElement>('.carousel-next')
 
       if (!track || slides.length <= 1) return
+      const trackEl = track
 
       let current = 0
       const total = slides.length
-      const autoplayMs = parseInt(carousel.dataset.autoplay || '5000')
+      const delay = parseInt(carousel.dataset.autoplay || '3000', 10)
+      let interval: ReturnType<typeof setInterval> | null = null
 
       function goTo(index: number) {
         current = ((index % total) + total) % total
-        track!.style.transform = `translateX(-${current * 100}%)`
+        trackEl.style.transform = `translateX(-${current * 100}%)`
         dots.forEach((dot, i) => dot.classList.toggle('active', i === current))
       }
 
-      // Flechas
-      prevBtn?.addEventListener('click', () => { goTo(current - 1); resetAutoplay() })
-      nextBtn?.addEventListener('click', () => { goTo(current + 1); resetAutoplay() })
+      function startAutoplay() {
+        if (interval) clearInterval(interval)
+        interval = setInterval(() => goTo(current + 1), delay)
+      }
 
-      // Dots
+      function stopAutoplay() {
+        if (!interval) return
+        clearInterval(interval)
+        interval = null
+      }
+
+      prevBtn?.addEventListener('click', () => {
+        goTo(current - 1)
+        startAutoplay()
+      })
+
+      nextBtn?.addEventListener('click', () => {
+        goTo(current + 1)
+        startAutoplay()
+      })
+
       dots.forEach((dot) => {
         dot.addEventListener('click', () => {
-          goTo(parseInt(dot.dataset.index || '0'))
-          resetAutoplay()
+          goTo(parseInt(dot.dataset.index || '0', 10))
+          startAutoplay()
         })
       })
 
-      // Autoplay
-      let interval = setInterval(() => goTo(current + 1), autoplayMs)
-      function resetAutoplay() {
-        clearInterval(interval)
-        interval = setInterval(() => goTo(current + 1), autoplayMs)
-      }
+      carousel.addEventListener('mouseenter', stopAutoplay)
+      carousel.addEventListener('mouseleave', startAutoplay)
 
-      // Pausar al hover
-      carousel.addEventListener('mouseenter', () => clearInterval(interval))
-      carousel.addEventListener('mouseleave', () => {
-        interval = setInterval(() => goTo(current + 1), autoplayMs)
-      })
+      startAutoplay()
     })
-  })
+  }
+
+  document.addEventListener('DOMContentLoaded', initCarousels)
+  document.addEventListener('astro:page-load', initCarousels)
 </script>

@@ -3,13 +3,16 @@
   "destacado": true,
   "titulo": "Too Many Machines",
   "descripcion": {
-    "es": "Un juego de plataformas donde el jugador navega a través de niveles llenos de máquinas y obstáculos mecánicos. Jugable directamente en el navegador con controles intuitivos y niveles desafiantes.",
-    "en": "A platformer game where the player navigates through levels full of machines and mechanical obstacles. Playable directly in the browser with intuitive controls and challenging levels."
+    "es": "Se trata de un Tower Defense, el cual esta protagonizado por nuestro querido cerdo Slave que ha que combatir contra sus amigos, los cuales se han vuelto malignos.",
+    "en": "It is a Tower Defense game, starring our beloved pig Slave who has to fight against his friends, who have turned evil."
   },
   "tecnologias": ["Unity", "CSharp"],
   "media": [
-    "/media/proyectos/too-many-machines/preview.jpg",
-    "/media/proyectos/too-many-machines/preview-2.jpg"
+    "/media/proyectos/too-many-machines/toomanymachines.png",
+    "/media/proyectos/too-many-machines/toomanymachines_gameplay.png",
+    "/media/proyectos/too-many-machines/toomanymachines_gameplay2.png",
+    "/media/proyectos/too-many-machines/toomanymachines_gameplay3.png",
+    "/media/proyectos/too-many-machines/toomanymachines_gameplay4.png"
   ],
   "enlaces": {
     "codigo": "https://github.com/44Lucia",
