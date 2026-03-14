@@ -8,8 +8,12 @@
   },
   "tecnologias": ["Unity", "CSharp"],
   "media": [
-    "/media/proyectos/grimoire-of-madness/preview.jpg",
-    "/media/proyectos/grimoire-of-madness/preview-2.jpg"
+    "/media/proyectos/grimoire-of-madness/FLYER_GRIMOIRE.jpg",
+    "/media/proyectos/grimoire-of-madness/grimoire_gameplay.png",
+    "/media/proyectos/grimoire-of-madness/grimoire_gameplay1.png",
+    "/media/proyectos/grimoire-of-madness/grimoire_gameplay2.png",
+    "/media/proyectos/grimoire-of-madness/grimoire_gameplay3.png",
+    "/media/proyectos/grimoire-of-madness/grimoire_gameplay4.png"
   ],
   "enlaces": {
     "codigo": "https://github.com/44Lucia",
